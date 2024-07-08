@@ -1,64 +1,82 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'portfolio/vendors/@fortawesome/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/live-resume.css' %}">
 
-    <link rel="stylesheet" href="{% static "portfolio/custom.css" %}">
-
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-
-
-    <title>Степурко Александр</title>
 </head>
 
 <body>
+<header>
 
-<nav id="topNav" class="navbar navbar-expand-md navbar-light">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse text-center" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% static "portfolio/resume.pdf" %}">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.linkedin.com/in/alexnadr-stepurko/"
-                       target="_blank">LinkedIn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/Aliaksandrsw" target="_blank">GitHub</a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
+    <nav class="collapsible-nav" id="collapsible-nav">
+    <a href="{% url 'home' %}" class="nav-link {% if active_page == 'home' %}active{% endif %}">ГЛАВНАЯ</a>
+    <a href="#" class="nav-link {% if active_page == 'resume' %}active{% endif %}">РЕЗЮМЕ</a>
+    <a href="{% url 'portfolio' %}" class="nav-link {% if active_page == 'portfolio' %}active{% endif %}">ПОРТФОЛИО</a>
+    <a href="{% url 'contact' %}" class="nav-link {% if active_page == 'contact' %}active{% endif %}">КОНТАКТЫ</a>
 </nav>
-<div class="container">
-    {% block content %}{% endblock %}
+    <button class="btn btn-menu-toggle btn-white rounded-circle" data-toggle="collapsible-nav"
+            data-target="collapsible-nav"><img src="{% static 'portfolio/images/hamburger.svg' %}" alt="hamburger"></button>
+
+</header>
+<div class="content-wrapper">
+    <aside>
+
+        <h1 class="profile-name">Степурко Александр</h1>
+        <div class="text-center">
+            <span class="badge badge-white badge-pill profile-designation">Backend developer</span>
+        </div>
+        <nav class="social-links">
+            <a href="#!" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#!" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#!" class="social-link"><i class="fab fa-behance"></i></a>
+            <a href="#!" class="social-link"><i class="fab fa-dribbble"></i></a>
+            <a href="#!" class="social-link"><i class="fab fa-github"></i></a>
+        </nav>
+        <div class="widget">
+            <h5 class="widget-title">Личная информация</h5>
+            <div class="widget-content">
+                <p>ДЕНЬ РОЖДЕНИЯ : 21&nbsp;октября 1989</p>
+                <p>ТЕЛЕФОН: +375298577697</p>
+                <p>ПОЧТА: swird@ya.ru</p>
+                <p>Местоположение: Беларусь</p>
+            </div>
+        </div>
+        <div class="widget card">
+            <div class="card-body">
+                <div class="widget-content">
+                    <h5 class="widget-title card-title">ЯЗЫКИ</h5>
+                    <p>Русский : родной</p>
+                    <p>Английский : ниже среднего</p>
+                    <p> </p>
+                </div>
+            </div>
+        </div>
+        <div class="widget card">
+
+        </div>
+    </aside>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
 </div>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+<script src="{% static 'portfolio/vendors/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'portfolio/vendors/@popperjs/core/dist/umd/popper-base.min.js' %}"></script>
+<script src="{% static 'portfolio/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'portfolio/js/live-resume.js' %}"></script>
+
 </body>
 
 </html>
