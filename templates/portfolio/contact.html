@@ -1,0 +1,40 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}
+    <title> Обратная связь </title>
+{% endblock %}
+
+{% block content %}
+    <section class="contact-section">
+        <p class="mb-4">Если вы хотите поговорить о проектах, работе или о чем-либо еще, свяжитесь со мной.</p>
+
+        <div class="contact-cards-wrapper">
+            <div class="contact-card">
+                <h6 class="contact-card-title">Позвони</h6>
+                <p class="contact-card-content">+375298577697</p>
+            </div>
+            <div class="contact-card">
+                <h6 class="contact-card-title">Email</h6>
+                <p class="contact-card-content">swird@ya.ru</p>
+            </div>
+        </div>
+
+        <form class="contact-form" method="post">
+            {% csrf_token %}
+            <div class="form-group form-group-name">
+                <label for="{{ form.name.id_for_label }}" class="sr-only">{{ form.name.label }}</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group form-group-email">
+                <label for="{{ form.email.id_for_label }}" class="sr-only">{{ form.email.label }}</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}" class="sr-only">{{ form.message.label }}</label>
+                {{ form.message }}
+            </div>
+            <button type="submit" class="btn btn-primary form-submit-btn">Отправить сообщение </button>
+        </form>
+
+    </section>
+{% endblock %}
+
