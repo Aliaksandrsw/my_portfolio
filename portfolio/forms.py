@@ -8,7 +8,8 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'ИМЯ',
-            'id': 'name'
+            'id': 'name',
+            'style': 'font-size: 16px;'
         })
     )
     email = forms.EmailField(
@@ -16,7 +17,8 @@ class ContactForm(forms.Form):
         widget=forms.EmailInput(attrs={
             'class': 'form-control',
             'placeholder': 'EMAIL',
-            'id': 'email'
+            'id': 'email',
+            'style': 'font-size: 16px;'
         })
     )
     message = forms.CharField(
@@ -25,6 +27,7 @@ class ContactForm(forms.Form):
             'class': 'form-control',
             'placeholder': 'СООБЩЕНИЕ',
             'rows': '5',
-            'id': 'message'
+            'id': 'message',
+            'style': 'font-size: 16px;'
         })
     )
