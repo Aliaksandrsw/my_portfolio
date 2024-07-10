@@ -20,7 +20,7 @@
 
     <nav class="collapsible-nav" id="collapsible-nav">
     <a href="{% url 'home' %}" class="nav-link {% if active_page == 'home' %}active{% endif %}">ГЛАВНАЯ</a>
-    <a href="#" class="nav-link {% if active_page == 'resume' %}active{% endif %}">РЕЗЮМЕ</a>
+    <a href="{% static 'portfolio/resume.pdf' %}" target="_blank" class="nav-link ">РЕЗЮМЕ</a>
     <a href="{% url 'portfolio' %}" class="nav-link {% if active_page == 'portfolio' %}active{% endif %}">ПОРТФОЛИО</a>
     <a href="{% url 'contact' %}" class="nav-link {% if active_page == 'contact' %}active{% endif %}">КОНТАКТЫ</a>
 </nav>
@@ -36,11 +36,9 @@
             <span class="badge badge-white badge-pill profile-designation">Backend developer</span>
         </div>
         <nav class="social-links">
-            <a href="#!" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#!" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#!" class="social-link"><i class="fab fa-behance"></i></a>
-            <a href="#!" class="social-link"><i class="fab fa-dribbble"></i></a>
-            <a href="#!" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/alexnadr-stepurko/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://t.me/swwwo42" target="_blank" class="social-link"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://github.com/Aliaksandrsw" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
         </nav>
         <div class="widget">
             <h5 class="widget-title">Личная информация</h5>
