@@ -10,6 +10,7 @@
 
             <div class="portfolio-wrapper">
                 {% for project in projects %}
+                    <a href="{{ project.url }}" class="portfolio-item-link">
                     <figure class="portfolio-item hover-box">
                         {% if project.image %}
                             <img src="{{ project.image.url }}" alt="{{ project.title }}" class="portfolio-item-img">
@@ -25,5 +26,3 @@
         </section>
     </main>
 {% endblock %}
-
-
